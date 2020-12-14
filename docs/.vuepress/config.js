@@ -1,6 +1,7 @@
 module.exports = {
   title: '清风望月',
   description: '这是我的个人博客',
+  base: '/blog/',
   theme: 'reco',
   head: [
     ['link', {
