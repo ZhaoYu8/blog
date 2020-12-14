@@ -1,161 +1,37 @@
 ---
-title: js
+title: 手写系列
 lang: zh-CN
-date: 2020-12-10
-sidebar: true
-subSidebar: true
+date: 2020-12-14
 categories:
  - 前端
 tags:
  - js
+ - 手写
 publish: true
 ---
-## markdown示例内容，可以自己填写别的。
-
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-#### 关于Vue下组件引入第三方外部外链Js几种方式
-https://blog.csdn.net/u010881899/article/details/80895661
-
-#### nginx一键配置
-https://nginxconfig.io/
-
-#### lodash按需加载
-https://www.jianshu.com/p/f03ff4f3a8b3
-
-
-## 测试一下
+## 手写防抖
+```js
+ function debounce(fn, time = 300) {
+      let timer = null;
+      return function (...val) {
+        if (timer) clearTimeout(timer); // 和节流的区别，防抖是 清除上一次的定时。但是一直会有一个新的定时。
+        timer = setTimeout(function (){
+          fn.apply(this, val);
+          timer = null;
+        }, time);
+      }
+    }
+```
+## 手写节流
+```js
+function throttle(fn, time) {
+  let timer = null;
+  return function (...val) {
+    if(timer) return; // 和防抖的区别，节流是 直接中止程序执行，但是上一次的结果依然是执行的。
+    timer = setTimeout(function (){
+      fn.apply(this, val);
+      timer = null;
+    }, time)
+  }
+}
+```

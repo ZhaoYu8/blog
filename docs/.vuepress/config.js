@@ -9,6 +9,9 @@ module.exports = {
       href: '/favicon.ico'
     }]
   ],
+  markdown: {
+    lineNumbers: true
+  },
   themeConfig: {
     type: 'blog', // vuepress-theme-reco 的blog模式
     author: '赵宇', // 全局作者
