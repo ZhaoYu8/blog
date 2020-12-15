@@ -8,18 +8,16 @@ module.exports = {
       rel: 'icon',
       href: '/favicon.ico'
     }],
-    [ 
-      "script",
-      {},
-      `
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?80fec0bd3ff2104bce5589db0211b18c";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })(); 
-      `
+  ],
+  plugins: [
+    ['vuepress-plugin-code-copy', {
+      successText: '复制'
+    }],
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'G-FKDPSJ47YQ' // UA-00000000-0 ,填入你google账号分析那个ID即可
+      }
     ]
   ],
   markdown: {
