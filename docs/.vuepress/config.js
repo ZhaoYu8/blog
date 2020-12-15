@@ -7,7 +7,20 @@ module.exports = {
     ['link', {
       rel: 'icon',
       href: '/favicon.ico'
-    }]
+    }],
+    [ 
+      "script",
+      {},
+      `
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?80fec0bd3ff2104bce5589db0211b18c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })(); 
+      `
+    ]
   ],
   markdown: {
     lineNumbers: true
