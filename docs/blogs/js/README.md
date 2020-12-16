@@ -9,7 +9,7 @@ tags:
  - 手写
 publish: true
 ---
-## 手写防抖
+## 1 防抖
 ```js
  function debounce(fn, time = 300) {
       let timer = null;
@@ -22,7 +22,7 @@ publish: true
       }
     }
 ```
-## 手写节流
+## 2 节流
 ```js
 function throttle(fn, time) {
   let timer = null;
@@ -33,5 +33,38 @@ function throttle(fn, time) {
       timer = null;
     }, time)
   }
+}
+```
+## 3 深度拷贝
+```js
+function copy(val) {
+  if (typeof val !== 'object' || val === null) return val;
+  let options = Array.isArray(val) ? [] : {};
+  for (const key in val) {
+    if (Object.hasOwnProperty.call(val, key)) {
+      options[key] = copy(val[key])
+    }
+  }
+  return options;
+}
+```
+## 4 深度比较
+```js
+function isObj(r) {
+  return typeof r !== 'object' || r === null
+}
+function isEqual(obj1, obj2) {
+  if (isObj(obj1) || isObj(obj2)) { // 除了 数组和对象 其他的都直接返回比较结果
+    return obj1 === obj2;
+  }
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false;
+  }
+  if (obj1 === obj2) return true;
+  for (const key in obj1) {
+    let res = isEqual(obj1[key], obj2[key]);
+    if (!res) return false;
+  }
+  return true;
 }
 ```
