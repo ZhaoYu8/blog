@@ -36,3 +36,60 @@ tags:
 2. XSRF
    - 伪造用户调用接口
    - 解决方法：后台返回唯一的token,存储 localStorage 中。 在请求头里添加这个token。 或者使用短信验证码 密码 等。
+
+## 4 常用数组方法
+  `let arr = [1,2];`
+  ### 4.1 常用方法
+```js
+// 1. pop
+  console.log(arr.pop(), arr); // 2 [1]; 返回数组最后一项，原数组被删除了最后一项
+// 2. shift
+  console.log(arr.shift(), arr); // 1 [2]; 返回数组第一项，原数组被删除了第一项
+// 3. push
+  console.log(arr.push(3, 4), arr); // 4 [1,2,3,4]; 返回数组长度，原数组 `尾部` 上添加数据
+// 4. unshift
+  console.log(arr.unshift(3, 4), arr); // 4 [3,4,1,2]; 返回数组长度，原数组 `头部` 上添加数据
+// 5. splice
+  console.log(arr.splice(1,1), arr); // [2] [1] 返回下表为1的，并且删除原数组下表为1的。
+  console.log(arr.splice(1,0,3), arr); //[] [1,2,3] 第二个数组为0，则可以在数组尾部追加 并且返回结果
+```
+### 4.2  纯函数方法
+```js
+// *1.不改变原函数 2. 返回一个数组`*
+// 1. concat
+  console.log(arr.concat([3,4]), arr); // [1,2,3,4], [1,2]; 二个数组拼接
+// 2. map
+  console.log(arr.map(r => r * 10), arr); // [10, 20] [1,2]; 遍历数组，返回结果
+// 3. filter
+  console.log(arr.map(r => r > 1), arr); // [2] [1,2]; 遍历数组，返回符合条件的数据
+// 4. slice
+  console.log(arr.slice(1,2),arr); // [2] [1, 2]; 传入二个参数，返回下标 1 到 2的数据
+```
+## 5 自定义v-model
+```html
+<input type="text" @input="$emit('input', $event.target.value)">
+```
+```js
+model: {
+  prop: 'value',
+  event: 'input'
+},
+props: {
+  value: String,
+  default() {
+    return ''
+  }
+}
+```
+## 6 动态组件
+`<component :is="xxxx" />`
+
+## 7 异步组件
+`components: {
+  'my-component': () => import('./my-async-component')
+}`
+
+## 8 缓存
+`<keep-alive>
+  <xxx />
+</keep-alive>`

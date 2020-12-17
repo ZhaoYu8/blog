@@ -68,3 +68,49 @@ function isEqual(obj1, obj2) {
   return true;
 }
 ```
+## 5 拍平多维数组
+```js
+// 利用递归
+function flatten(...val) {
+  let arr = [];
+  val.map(r => {
+    if (Array.isArray(r)) {
+      arr.push(...flatten(...r)); // 主要是这用递归传递数组，然后返回数组用扩展符拍平
+    } else {
+      arr.push(r);
+    }
+  })
+  return arr;
+};
+
+// 利用 toString() 方法
+function flat(...arr) {
+  if (arr.length > 1) {
+    let _arr = [];
+    arr.map(r => {
+      _arr = _arr.concat(r.toString().split(',').map(n => +n));
+    })
+    return _arr;
+  }
+  return arr.toString().split(',').map(val => +val) // 主要是arr.toString() 将数组转为字符串，无论多少层
+}
+console.log(flatten([1, [2, 3]], [2, [3, [4, 5, [1, [3, [5, [6, [7, [10]]]]]]]], [5]]))
+// [1, 2, 3, 2, 3, 4, 5, 1, 3, 5, 6, 7, 10, 5]
+```
+## 6 手写call aplly bind 同理
+```js
+  Object.prototype.myCall = function (...val) {
+    val[0].fn = this;
+    val[0].fn(...val.slice(1));
+  }
+  Object.prototype.myApply = function (...val) {
+    val[0].fn = this;
+    val[0].fn(...val[1]);
+  }
+  Object.prototype.myBind = function (...val) {
+    val[0].fn = this;
+    return function () {
+      val[0].fn(...val.slice(1));
+    }
+  }
+```
