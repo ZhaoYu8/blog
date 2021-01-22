@@ -84,7 +84,7 @@ props: {
 ## 6 动态组件
 `<component :is="xxxx" />`
 
-## 7 异步组件
+## 7 异步加载组件
 `components: {
   'my-component': () => import('./my-async-component')
 }`
@@ -93,3 +93,98 @@ props: {
 `<keep-alive>
   <xxx />
 </keep-alive>`
+
+## 9 Object.definePrototype 的实现原理
+```js
+let obj = {
+  age: 20,
+  info: {
+    address: '北京'
+  },
+  arr: [10, 20]
+};
+function update() {
+  console.log('更新了')
+}
+// 借助于 Object.create ，继承 Array 对象的原型;
+let arrPrototype = Object.create(Array.prototype);
+// 遍历数组方法，在 arrPrototype 对象下面，绑定方法 
+['push', 'pop'].map(r => {
+  arrPrototype[r] = function (...val) {
+    update();
+    arrPrototype.__proto__[r].call(this, ...val); // 借助于 原型的方法，最终实现数组方法
+    // 因为数组可能会添加对象，所以这里也要执行一下深度监听。
+    observer(...val)
+  }
+})
+// 定义 vue2 监听对象的方法
+function define(val, key, value) {
+  // 深度监听value 一般是对象的值是另一个对象
+  observer(value);
+  Object.defineProperty(val, key, {
+    get() {
+      return value;
+    },
+    set(newVal) {
+      // 监听由于替换一个新对象，而导致新对象无法监听的问题。
+      observer(newVal);
+      value = newVal;
+      update();
+    }
+  })
+}
+// 定义 对象遍历绑定监听事件
+function observer(obj) {
+  if (typeof obj !== 'object' || obj == null) return obj;
+  if (Array.isArray(obj)) {
+    obj.__proto__ = arrPrototype;
+    return;
+  }
+  for (const key in obj) {
+    define(obj, key, obj[key]);
+  }
+};
+// 初始化 需要监听的对象
+observer(obj);
+obj.age = { num: 2 };
+obj.info.address = '上海';
+obj.age.num = 3;
+obj.arr.push({ a: 1 });
+console.log(obj.arr)
+obj.arr[2].a = 2;
+```
+::: tip 提示
+因为 Object.defineProperty 监听不了数组，所以给数组方法单独写了方法监听
+:::
+## 10 用js 模拟DOM 结构
+```html
+<div id="div1" class="container">
+  <p>vdom</p>
+  <ul style="font-size: 15px">
+    <li>a</li>
+  </ul>
+</div>
+```
+```js
+let vdom = [
+  {
+    tag: 'div',
+    prop: {
+      id: 'div1',
+      className: 'container'
+    },
+    children: [
+      { tag: 'p', children: 'vdom' },
+      {
+        tag: 'ul',
+        prop: {
+          style: 'font-size:15px'
+        },
+        children: [
+          { tag: 'li', children: 'a' }
+        ]
+      }
+    ]
+  }
+];
+```
