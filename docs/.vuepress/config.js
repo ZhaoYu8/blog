@@ -58,10 +58,6 @@ module.exports = {
           {
             text: "js",
             link: "/categories/前端/"
-          },
-          {
-            text: "vue",
-            link: "/blogs/vue/"
           }
         ]
       },

@@ -9,10 +9,6 @@ tags:
 publish: true
 ---
 
-:::tip
-git 自用记录
-:::
-
 <!-- more -->
 
 ## 1. git 拉取远程指定分支代码

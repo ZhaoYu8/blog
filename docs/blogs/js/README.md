@@ -81,6 +81,9 @@ function isEqual(obj1, obj2) {
 ## 5 拍平多维数组
 
 ```js
+// 利用flat方法
+[].flat();
+
 // 利用递归
 function flatten(...val) {
   let arr = [];
@@ -150,4 +153,28 @@ Object.prototype.myBind = function(...val) {
     val[0].fn(...val.slice(1));
   };
 };
+```
+
+## 8 js 原生 copy 的实现
+
+```js
+let element = document.createElement("textarea");
+element.innerText = `动态拷贝的内容`;
+document.body.appendChild(element);
+element.select();
+document.execCommand("Copy");
+element.remove();
+```
+
+## 9 取 url 参数
+
+```js
+  // name='id' str = 'id=1&name=小青'
+  getStringVal(name, str) {
+    let arr = str
+      .split("&")
+      .map((r) => r.split("="))
+      .flat(); // 二维拍成一维 ['id',1,'name', '小青']
+    return arr[arr.findIndex((r) => r === name) + 1]; // findIndex + 1 得出结果
+  }
 ```
