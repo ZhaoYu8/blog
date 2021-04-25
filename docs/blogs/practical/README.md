@@ -58,23 +58,18 @@ Windows 10 教育版 N          2WH4N-8QGBV-H22JP-CT43Q-MDWWJ
 Windows 10 企业版 2015 LTSB    WNMTR-4C88C-JK8YV-HQ7T2-76DF9
 ```
 
-## 2 解决 github 打开、拉取、推送速度慢的问题
+## 2 解决 github 无法访问问题
 
-第一步：打开 ipaddress.com,查询如下两个域名，并分别记录下其对应的 ip：
-
-1、github.com
-2、github.global.ssl.fastly.net
-![20210315-144554-0497.jpg](https://gitee.com/zhaoyu8/tuchuang/raw/master/img/20210315-144554-0497.jpg)
-
-第二步：更新host文件，如下图：
-
-192.30.253.112 github.com
-151.101.185.194 github.global.ssl.fastly.net
-![1615791236(1).jpg](https://gitee.com/zhaoyu8/tuchuang/raw/master/img/1615791236(1).jpg)
-:::tip
-host文件地址
-c:\windows\system32\drivers\etc
-:::
-第三步：清理下DNS，再试一下。
-ipconfig /flushdns
-![20210315-140459-0978.jpg](https://gitee.com/zhaoyu8/tuchuang/raw/master/img/20210315-140459-0978.jpg)
+1. 打开
+[github网址查询](https://github.com.ipaddress.com/)
+![](https://files.catbox.moe/mvoda5.png)
+2. 打开
+[github域名查询](https://fastly.net.ipaddress.com/github.global.ssl.fastly.net)
+![](https://files.catbox.moe/jkprze.png)
+3. 打开
+[github静态资源ip](https://github.com.ipaddress.com/assets-cdn.github.com)
+![](https://files.catbox.moe/5pkop0.png)
+4. 修改host文件，修改host文件。文件地址 C:\Windows\System32\drivers\etc\hosts
+![](https://files.catbox.moe/ic4o4t.png)
+5. 打开cmd，输入 ipconfig /flushdns 回车
+![](https://files.catbox.moe/o24a7l.png)
