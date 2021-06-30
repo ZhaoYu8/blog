@@ -178,3 +178,9 @@ element.remove();
     return arr[arr.findIndex((r) => r === name) + 1]; // findIndex + 1 得出结果
   }
 ```
+
+## 10 快速生成数组
+
+```js
+  Array.from(new Array(100).keys());
+```
