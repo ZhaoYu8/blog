@@ -182,5 +182,12 @@ element.remove();
 ## 10 快速生成数组
 
 ```js
-  Array.from(new Array(100).keys());
+Array.from(new Array(100).keys());
+```
+
+## 11 正则最多几位小数 小数点未超过，也不补充
+
+```js
+"123.123".replace(/([0-9]+.[0-9]{2})[0-9]*/, "$1");
+// '123.12'
 ```
