@@ -3,6 +3,7 @@ module.exports = {
   description: "这是我的个人博客",
   base: "/blog/",
   theme: "reco",
+  dest: 'dist',
   head: [
     [
       "link",
