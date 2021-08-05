@@ -15,5 +15,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 使用刚新建的secret:
           branch: gh-pages # The branch the action should deploy to.
-          folder: docs/.vuepress/dist
+          folder: dist # 存放build后产物的目录
