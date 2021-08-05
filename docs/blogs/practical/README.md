@@ -9,7 +9,33 @@ tags:
 publish: true
 ---
 
-## 1 win10 激活
+## 1 解决 github 无法访问问题
+
+[github520](https://gitee.com/inChoong/GitHub520#22-%E8%87%AA%E5%8A%A8%E6%96%B9%E5%BC%8F);
+
+### 1.1 自动方式
+
+**Tip**：推荐 [SwitchHosts](https://github.com/oldj/SwitchHosts) 工具管理 hosts
+
+以 SwitchHosts 为例，看一下怎么使用的，配置参考下面：
+如图：
+![](https://files.catbox.moe/7fftos.jpg)
+
+- 点击 左上角 +
+
+  ![](https://files.catbox.moe/6v580w.png)
+
+* 类型: `远程`
+
+* 标题: `随意`
+
+* URL: `https://raw.fastgit.org/521xueweihan/GitHub520/main/hosts`
+
+* 自动刷新: `看你自己 建议 1小时`
+
+这样每次 hosts 有更新都能及时进行更新，免去手动更新。
+
+## 2 win10 激活
 
 ```
 win10 系统激活：
@@ -57,19 +83,3 @@ Windows 10 教育版          NW6C2-QMPVW-D7KKK-3GKT6-VCFB2
 Windows 10 教育版 N          2WH4N-8QGBV-H22JP-CT43Q-MDWWJ
 Windows 10 企业版 2015 LTSB    WNMTR-4C88C-JK8YV-HQ7T2-76DF9
 ```
-
-## 2 解决 github 无法访问问题
-
-1. 打开
-[github网址查询](https://github.com.ipaddress.com/)
-![](https://files.catbox.moe/mvoda5.png)
-2. 打开
-[github域名查询](https://fastly.net.ipaddress.com/github.global.ssl.fastly.net)
-![](https://files.catbox.moe/jkprze.png)
-3. 打开
-[github静态资源ip](https://github.com.ipaddress.com/assets-cdn.github.com)
-![](https://files.catbox.moe/5pkop0.png)
-4. 修改host文件，修改host文件。文件地址 C:\Windows\System32\drivers\etc\hosts
-![](https://files.catbox.moe/ic4o4t.png)
-5. 打开cmd，输入 ipconfig /flushdns 回车
-![](https://files.catbox.moe/o24a7l.png)

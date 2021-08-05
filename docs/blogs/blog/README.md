@@ -1,5 +1,5 @@
 ---
-title: VuePress 搭建个人博客(1)
+title: VuePress 搭建个人博客
 lang: zh-CN
 date: 2020-12-10
 sidebar: true

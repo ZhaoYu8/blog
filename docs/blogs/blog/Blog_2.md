@@ -6,7 +6,6 @@ categories:
   - 博客
 tags:
   - blog
-publish: true
 ---
 
 编写第一篇博客
