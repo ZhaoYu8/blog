@@ -29,11 +29,14 @@ publish: true
 
 * 标题: `随意`
 
-* URL: `https://raw.fastgit.org/521xueweihan/GitHub520/main/hosts`
+* URL: `https://cdn.jsdelivr.net/gh/521xueweihan/GitHub520@main/hosts`
 
 * 自动刷新: `看你自己 建议 1小时`
 
 这样每次 hosts 有更新都能及时进行更新，免去手动更新。
+::: tip
+如果还是不能访问，打开 cmd 输入 ipconfig /flushdns
+:::
 
 ## 2 win10 激活
 
