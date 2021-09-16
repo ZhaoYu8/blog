@@ -101,7 +101,7 @@ git reset --hard origin/master    # 将本地的状态回退到和远程的一�
 ```
 ### 6.2 创建分支
 ```js
-  git branch branchName # 查看分支后面加名称也可以创建分支 如果是已有的就是切换分支
+  git branch branchName # 查看分支后面加名称也可以创建分支
   git checkout -b branchName # 创建分支 并且会切换到新建的分支
 ```
 ### 6.3 切换分支
