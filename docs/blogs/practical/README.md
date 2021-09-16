@@ -11,10 +11,25 @@ publish: true
 
 ## 1 解决 github 无法访问问题
 
+### 1.1 手动修改 成功率高
+
+1. 打开
+   [github 网址查询](https://github.com.ipaddress.com/)
+   ![](https://files.catbox.moe/mvoda5.png)
+2. 打开
+   [github 域名查询](https://fastly.net.ipaddress.com/github.global.ssl.fastly.net)
+   ![](https://files.catbox.moe/jkprze.png)
+3. 打开
+   [github 静态资源 ip](https://github.com.ipaddress.com/assets-cdn.github.com)
+   ![](https://files.catbox.moe/5pkop0.png)
+4. 修改 host 文件，修改 host 文件。文件地址 C:\Windows\System32\drivers\etc\hosts
+   ![](https://files.catbox.moe/ic4o4t.png)
+5. 打开 cmd，输入 ipconfig /flushdns 回车
+   ![](https://files.catbox.moe/o24a7l.png)
+
+### 1.2 自动方式
+
 [github520](https://gitee.com/inChoong/GitHub520#22-%E8%87%AA%E5%8A%A8%E6%96%B9%E5%BC%8F);
-
-### 1.1 自动方式
-
 **Tip**：推荐 [SwitchHosts](https://github.com/oldj/SwitchHosts) 工具管理 hosts
 
 以 SwitchHosts 为例，看一下怎么使用的，配置参考下面：
