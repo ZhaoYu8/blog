@@ -1,5 +1,5 @@
 ---
-title: vue
+title: vue2.x 的修饰符
 lang: zh-CN
 date: 2021-02=19
 categories:
@@ -28,7 +28,6 @@ data() {
             value: '222'
         }
     }
-复制代码
 ```
 
 ![lazy1.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/746b221956384678812cd585e4fa7834~tplv-k3u1fbpfcp-watermark.image)
@@ -46,7 +45,6 @@ data() {
             value: '222'
         }
     }
-复制代码
 ```
 
 ![number.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7416025f033140688ed68135f77c4b48~tplv-k3u1fbpfcp-watermark.image)
@@ -64,7 +62,6 @@ data() {
             value: '222'
         }
     }
-复制代码
 ```
 
 > 先输入数字的话，只取前面数字部分
@@ -91,7 +88,6 @@ methods: {
             console.log(num)
         }
     }
-复制代码
 ```
 
 ## 5.capture
@@ -110,7 +106,6 @@ methods: {
             console.log(num)
         }
     }
-复制代码
 ```
 
 ## 6.self
@@ -129,7 +124,6 @@ methods: {
             console.log(num)
         }
     }
-复制代码
 ```
 
 ## 7.once
@@ -148,7 +142,6 @@ methods: {
             console.log(num)
         }
     }
-复制代码
 ```
 
 ## 8.prevent
@@ -165,7 +158,6 @@ methods: {
             console.log(num)
         }
     }
-复制代码
 ```
 
 ## 9.native
@@ -178,7 +170,6 @@ methods: {
 
 可以执行
 <My-component @click.native="shout(3)"></My-component>
-复制代码
 ```
 
 ## 10.left，right，middle
@@ -196,7 +187,6 @@ methods: {
             console.log(num)
         }
     }
-复制代码
 ```
 
 ## 11.passive
@@ -205,7 +195,6 @@ methods: {
 
 ```js
 <div @scroll.passive="onScroll">...</div>
-复制代码
 ```
 
 ## 12.camel
@@ -216,7 +205,6 @@ methods: {
 
 加了canmel viewBox才会被识别成viewBox
 <svg :viewBox.camel="viewBox"></svg>
-复制代码
 ```
 
 ## 12.sync
@@ -229,7 +217,6 @@ methods: {
 
 子组件里
 this.$emit('update:foo', newValue)
-复制代码
 ```
 
 `sync`修饰符的作用就是，可以简写：
@@ -240,7 +227,6 @@ this.$emit('update:foo', newValue)
 
 子组件里
 this.$emit('update:foo', newValue)
-复制代码
 ```
 
 ## 13.keyCode
@@ -249,14 +235,12 @@ this.$emit('update:foo', newValue)
 
 ```js
 <input type="text" @keyup="shout(4)">
-复制代码
 ```
 
 那么想要限制成某个按键触发怎么办？这时候`keyCode`修饰符就派上用场了
 
 ```js
 <input type="text" @keyup.keyCode="shout(4)">
-复制代码
 ```
 
 Vue 提供的 keyCode：
@@ -277,7 +261,6 @@ Vue 提供的 keyCode：
 .alt
 .meta
 .shift
-复制代码
 ```
 
 例如（具体的键码请看[键码对应表](https://zhidao.baidu.com/question/266291349.html)）
@@ -291,6 +274,4 @@ Vue 提供的 keyCode：
 
 可以多按键触发 例如 ctrl + 67
 <input type="text" @keyup.ctrl.67="shout(4)">
-复制代码
 ```
-
