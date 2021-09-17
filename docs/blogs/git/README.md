@@ -99,32 +99,45 @@ git reset --hard origin/master    # 将本地的状态回退到和远程的一�
   git branch # 查看本地分支
   git branch -a # 查看本地以及远程分支
 ```
+
 ### 6.2 创建分支
+
 ```js
   git branch branchName # 查看分支后面加名称也可以创建分支
   git checkout -b branchName # 创建分支 并且会切换到新建的分支
 ```
+
 ### 6.3 切换分支
+
 ```js
   git checkout branchName
 ```
-## 10. git 拉取远程指定分支代码
 
-```sh
-  git 拉去远程指定分支代码
-  git clone -b 远程分支名 仓库地址
+### 6.4 合并分支
 
-  本地已经仓库,关联远程
-  添加远程关联
-  git remote add origin 仓库地址
-  // 查看远程分支
-  git branch -r
-  拉去远程分支
-  git pull origin master --allow-unrelated-histories
-  // 创建本地分支并关联
-  git checkout -b 本地分支 origin/远程分支
-  // 已有本地分支创建关联
-  git branch --set-upstream-to origin/远程分支名 本地分支名
-  // 拉取
-  git pull
+```js
+  git merge branchName # 当前分支 合并 branchName
+```
+
+### 6.5 删除分支
+
+```js
+  git branch -d branchName
+```
+
+### 6.6 分支重命名
+
+```js
+  git branch -m newName # 如果分支名已存在，需要 -M
+```
+
+## 7. push pull clone
+
+```js
+  git push origin branchName # 推送本地分支到远程
+  git push origin --delete branchName # 删除远程分支 并且本地分支依旧存在
+  git clone -b branchName https://gitee.com/zhaoyu8/xxx.git # 拉取远程指定分支
+  git checkout -b localName origin/branchName # 拉取远程指定分分支。并在本地创建分支
+  git pull origin master # 拉取远程分支与当前分支合并（merge）
+  git branch --set-upstream-to origin/branchName # 已有本地分支创建关联
 ```
