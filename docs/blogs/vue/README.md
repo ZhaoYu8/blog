@@ -51,7 +51,7 @@ data() {
 
 ## 3.number
 
-`number`修饰符的作用是将值转成数字，但是先输入字符串和先输入数字，是两种情况
+`number`修饰符的作用是将值转成数字，但是先输入字符串和先输入数字，是两种情况 修改bug nima
 
 ```js
 <input type="text" v-model.number="value">
