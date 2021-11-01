@@ -16,9 +16,10 @@ publish: true
 function debounce(fn, time = 300) {
   let timer = null;
   return function(...val) {
+    let _this = this;
     if (timer) clearTimeout(timer); // 和节流的区别，防抖是 清除上一次的定时。但是一直会有一个新的定时。
     timer = setTimeout(function() {
-      fn.apply(this, val);
+      fn.apply(_this, val);
       timer = null;
     }, time);
   };
@@ -28,23 +29,43 @@ function debounce(fn, time = 300) {
 ## 2 节流
 
 ```js
+// 定时器 缺点 最后一次也执行了。
 function throttle(fn, time) {
   let timer = null;
   return function(...val) {
+    let _this = this;
     if (timer) return; // 和防抖的区别，节流是 直接中止程序执行，但是上一次的结果依然是执行的。
     timer = setTimeout(function() {
-      fn.apply(this, val);
+      fn.apply(_this, val);
       timer = null;
     }, time);
   };
 }
+// 时间戳 缺点 第一次就执行了方法
+function throttle(fn, time) {
+  let startDate = 0;
+  return function(...val) {
+    let _this = this;
+    let nowDate = Date.now();
+    if (nowDate - startDate > time) {
+      fn.apply(_this, val);
+      startDate = nowDate;
+    }
+  };
+}
+let fn = throttle(() => {
+  console.log(1);
+}, 1000);
+fn();
+fn();
+fn();
 ```
 
 ## 3 深度拷贝
 
 ```js
 function copy(val) {
-  if (typeof val !== "object" || val === null) return val;
+  if (typeof val !== 'object' || val === null) return val;
   let options = Array.isArray(val) ? [] : {};
   for (const key in val) {
     if (Object.hasOwnProperty.call(val, key)) {
@@ -59,7 +80,7 @@ function copy(val) {
 
 ```js
 function isObj(r) {
-  return typeof r !== "object" || r === null;
+  return typeof r !== 'object' || r === null;
 }
 function isEqual(obj1, obj2) {
   if (isObj(obj1) || isObj(obj2)) {
@@ -105,7 +126,7 @@ function flat(...arr) {
       _arr = _arr.concat(
         r
           .toString()
-          .split(",")
+          .split(',')
           .map((n) => +n)
       );
     });
@@ -113,7 +134,7 @@ function flat(...arr) {
   }
   return arr
     .toString()
-    .split(",")
+    .split(',')
     .map((val) => +val); // 主要是arr.toString() 将数组转为字符串，无论多少层
 }
 console.log(flatten([1, [2, 3]], [2, [3, [4, 5, [1, [3, [5, [6, [7, [10]]]]]]]], [5]]));
@@ -158,11 +179,11 @@ Object.prototype.myBind = function(...val) {
 ## 8 js 原生 copy 的实现
 
 ```js
-let element = document.createElement("textarea");
+let element = document.createElement('textarea');
 element.innerText = `动态拷贝的内容`;
 document.body.appendChild(element);
 element.select();
-document.execCommand("Copy");
+document.execCommand('Copy');
 element.remove();
 ```
 
@@ -188,6 +209,6 @@ Array.from(new Array(100).keys());
 ## 11 正则最多几位小数 小数点未超过，也不补充
 
 ```js
-"123.123".replace(/([0-9]+.[0-9]{2})[0-9]*/, "$1");
+'123.123'.replace(/([0-9]+.[0-9]{2})[0-9]*/, '$1');
 // '123.12'
 ```

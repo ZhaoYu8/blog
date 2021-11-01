@@ -11,7 +11,10 @@ publish: true
 
 ## 1 解决 github 无法访问问题
 
-### 1.1 手动修改 成功率高
+### 1.1 每次开机要打开程序，但是不用自己设置
+[阿里云盘分享](https://www.aliyundrive.com/s/VTMhT9yELEa)
+
+### 1.2 手动修改 成功率高
 
 1. 打开
    [github 网址查询](https://github.com.ipaddress.com/)
@@ -27,7 +30,7 @@ publish: true
 5. 打开 cmd，输入 ipconfig /flushdns 回车
    ![](https://files.catbox.moe/o24a7l.png)
 
-### 1.2 自动方式
+### 1.3 自动方式
 
 [github520](https://gitee.com/inChoong/GitHub520#22-%E8%87%AA%E5%8A%A8%E6%96%B9%E5%BC%8F);
 **Tip**：推荐 [SwitchHosts](https://github.com/oldj/SwitchHosts) 工具管理 hosts
