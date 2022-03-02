@@ -212,3 +212,7 @@ Array.from(new Array(100).keys());
 '123.123'.replace(/([0-9]+.[0-9]{2})[0-9]*/, '$1');
 // '123.12'
 ```
+## 12 yarn 升级依赖包
+```js
+  yarn upgrade-interactive --latest
+```
