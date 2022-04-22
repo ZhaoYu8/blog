@@ -141,3 +141,9 @@ git reset --hard origin/master    # 将本地的状态回退到和远程的一�
   git pull origin master # 拉取远程分支与当前分支合并（merge）
   git branch --set-upstream-to origin/branchName # 已有本地分支创建关联
 ```
+
+## 8. yarn 升级依赖项
+
+```js
+  yarn upgrade-interactive --latest # 空格选择依赖性 回车确认
+```
